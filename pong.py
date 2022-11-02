@@ -55,10 +55,10 @@ while not game_over:
 
         if event.type == pygame.KEYDOWN:
             #jugador2
-            if event.key == pygame.K_UP:
-                player2_y_speed -= 4    
-            if event.key == pygame.K_DOWN:
-                player2_y_speed += 4
+            # if event.key == pygame.K_UP:
+            #     player2_y_speed -= 4    
+            # if event.key == pygame.K_DOWN:
+            #     player2_y_speed += 4
             #jugador1
             if event.key == pygame.K_w:
                 player1_y_speed -= 4
@@ -71,11 +71,29 @@ while not game_over:
                 player1_y_speed = 0
             if event.key == pygame.K_s:
                 player1_y_speed = 0
-            if event.key == pygame.K_UP:
-                player2_y_speed = 0
-            if event.key == pygame.K_DOWN:
-                player2_y_speed = 0
+            # if event.key == pygame.K_UP:
+            #     player2_y_speed = 0
+            # if event.key == pygame.K_DOWN:
+            #     player2_y_speed = 0
     
+    """
+    try ia
+    """
+    if pelota_x >= 0 :
+        if pelota_y >= player2_y_coor+40:
+            player2_y_speed -= 4
+        if pelota_y <= player2_y_coor+80:
+            player2_y_coor += 4
+    else:
+        player2_y_speed = 0 
+
+
+
+
+
+
+    
+
     #rebote pelota
     if pelota_x <= 0 or pelota_x >= 800:
         pelota_x_speed *= -1
